@@ -1,0 +1,37 @@
+import random
+
+def simulate_flight():
+    # 设置初始参数
+    velocity = random.uniform(100, 1000)  # 初始速度（单位：m/s）
+    altitude = random.uniform(1000, 10000)  # 初始高度（单位：m）
+    fuel = random.uniform(100, 1000)  # 初始燃料量（单位：升）
+
+    while altitude > 0:
+        # 模拟飞行过程
+        acceleration = calculate_acceleration(altitude, velocity, fuel)  # 计算加速度
+        velocity += acceleration  # 更新速度
+        altitude -= velocity  # 更新高度
+        fuel -= calculate_fuel_consumption(acceleration)  # 更新燃料量
+
+        if fuel <= 0:
+            print("燃料耗尽，飞行中止！")
+            break
+
+    print("飞行结束！")
+
+def calculate_acceleration(altitude, velocity, fuel):
+    # 根据当前状态计算加速度
+    # 这里可以根据具体的航空航天器模型和算法进行计算
+    # 返回计算得到的加速度值
+    acceleration = random.uniform(-10, 10)
+    return acceleration
+
+def calculate_fuel_consumption(acceleration):
+    # 根据加速度计算燃料消耗
+    # 这里可以根据具体的燃料消耗模型和算法进行计算
+    # 返回计算得到的燃料消耗量
+    fuel_consumption = random.uniform(1, 10)
+    return fuel_consumption
+
+# 运行飞行模拟
+simulate_flight()
